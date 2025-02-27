@@ -37,32 +37,33 @@ export default async function MyWallet({
             <TableHeadCell>Buy/Sell</TableHeadCell>
           </TableHead>
           <TableBody>
-            {wallet.assets.map(({ _id, asset, shares }) => (
-              <TableRow key={_id}>
-                <TableCell>
-                  <div>
-                    <div>
-                      <Image
-                        src={asset.image}
-                        alt={asset.symbol}
-                        width={30}
-                        height={30}
-                      />
+            {wallet.assets.map(
+              ({ _id, name, symbol, price, image_url, shares }) => (
+                <TableRow key={_id}>
+                  <TableCell>
+                    <div className="flex gap-2">
+                      <div className="content-center">
+                        <Image
+                          src={image_url}
+                          alt={symbol}
+                          width={42}
+                          height={42}
+                        />
+                      </div>
+                      <div className="flex flex-col text-sm">
+                        <span>{name}</span>
+                        <span className="font-bold">{symbol}</span>
+                      </div>
                     </div>
-                    <div>
-                      <span>{asset.name}</span>
-                      <span>{asset.symbol}</span>
-                    </div>
-                  </div>
-                </TableCell>
-                <TableCell>{asset.name}</TableCell>
-                <TableCell>R$ {asset.price}</TableCell>
-                <TableCell>{shares}</TableCell>
-                <TableCell>
-                  <Button color="light">Buy/Sell</Button>
-                </TableCell>
-              </TableRow>
-            ))}
+                  </TableCell>
+                  <TableCell>${price}</TableCell>
+                  <TableCell>{shares}</TableCell>
+                  <TableCell>
+                    <Button color="light">Buy/Sell</Button>
+                  </TableCell>
+                </TableRow>
+              ),
+            )}
           </TableBody>
         </Table>
       </div>

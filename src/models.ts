@@ -3,16 +3,11 @@ export type Asset = {
   name: string;
   symbol: string;
   price: number;
-  image: string;
-};
-
-export type WalletAsset = {
-  _id: string;
-  asset: Asset;
-  shares: number;
+  image_url: string;
+  shares: string;
 };
 
 export type Wallet = {
   _id: string;
-  assets: WalletAsset[];
+  assets: Asset[] | [];
 };
