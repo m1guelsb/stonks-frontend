@@ -4,10 +4,13 @@ export type Asset = {
   symbol: string;
   price: number;
   image_url: string;
-  shares: string;
 };
+
+export type WalletAsset = {
+  shares: number;
+} & Asset;
 
 export type Wallet = {
   _id: string;
-  assets: Asset[] | [];
+  assets: WalletAsset[] | [];
 };

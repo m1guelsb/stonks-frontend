@@ -1,5 +1,5 @@
 import { AssetItem } from '@/components/AssetItem';
-import { Wallet } from '@/models';
+import { Asset } from '@/models';
 import {
   Button,
   Table,
@@ -10,42 +10,35 @@ import {
   TableRow,
 } from 'flowbite-react';
 
-export async function getMyWallet(walletId: string): Promise<Wallet> {
-  const res = await fetch(`${process.env.API_URL}/wallets/${walletId}`);
+export async function getAssets(): Promise<Asset[]> {
+  const res = await fetch(`${process.env.API_URL}/assets`);
   return res.json();
 }
 
-export default async function MyWallet({
-  searchParams,
-}: {
-  searchParams: Promise<{ wallet_id: string }>;
-}) {
-  const { wallet_id } = await searchParams;
-  const wallet = await getMyWallet(wallet_id);
-  console.log(wallet);
+export default async function Assets() {
+  const assets = await getAssets();
+  console.log(assets);
   return (
     <div className="flex flex-col gap-5">
       <article className="format">
-        <h1>My Wallet</h1>
+        <h1>Assets</h1>
       </article>
       <div className="w-full overflow-x-auto">
         <Table className="w-full max-h-full table-fixed">
           <TableHead>
             <TableHeadCell>Stock</TableHeadCell>
             <TableHeadCell>Price</TableHeadCell>
-            <TableHeadCell>Quantity</TableHeadCell>
-            <TableHeadCell>Buy/Sell</TableHeadCell>
+            <TableHeadCell>Buy</TableHeadCell>
           </TableHead>
           <TableBody>
-            {wallet.assets.map((asset) => (
+            {assets.map((asset) => (
               <TableRow key={asset._id}>
                 <TableCell>
                   <AssetItem asset={asset} />
                 </TableCell>
                 <TableCell>${asset.price}</TableCell>
-                <TableCell>{asset.shares}</TableCell>
                 <TableCell>
-                  <Button color="light">Buy/Sell</Button>
+                  <Button color="light">Buy</Button>
                 </TableCell>
               </TableRow>
             ))}
