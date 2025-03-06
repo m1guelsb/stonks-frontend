@@ -9,6 +9,7 @@ import {
   TableHeadCell,
   TableRow,
 } from 'flowbite-react';
+import Link from 'next/link';
 
 export async function getMyWallet(walletId: string): Promise<Wallet> {
   const res = await fetch(`${process.env.API_URL}/wallets/${walletId}`);
@@ -22,7 +23,7 @@ export default async function MyWallet({
 }) {
   const { wallet_id } = await searchParams;
   const wallet = await getMyWallet(wallet_id);
-  console.log(wallet);
+
   return (
     <div className="flex flex-col gap-5">
       <article className="format">
@@ -45,7 +46,14 @@ export default async function MyWallet({
                 <TableCell>${asset.price}</TableCell>
                 <TableCell>{asset.shares}</TableCell>
                 <TableCell>
-                  <Button color="light">Buy/Sell</Button>
+                  <Button
+                    color="light"
+                    as={Link}
+                    href={`/assets/${asset.symbol}?wallet_id=${wallet_id}`}
+                    className="w-fit"
+                  >
+                    Buy/Sell
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

@@ -9,13 +9,19 @@ import {
   TableHeadCell,
   TableRow,
 } from 'flowbite-react';
+import Link from 'next/link';
 
 export async function getAssets(): Promise<Asset[]> {
   const res = await fetch(`${process.env.API_URL}/assets`);
   return res.json();
 }
 
-export default async function Assets() {
+export default async function Assets({
+  searchParams,
+}: {
+  searchParams: Promise<{ wallet_id: string }>;
+}) {
+  const { wallet_id } = await searchParams;
   const assets = await getAssets();
   console.log(assets);
   return (
@@ -38,7 +44,14 @@ export default async function Assets() {
                 </TableCell>
                 <TableCell>${asset.price}</TableCell>
                 <TableCell>
-                  <Button color="light">Buy</Button>
+                  <Button
+                    color="light"
+                    as={Link}
+                    href={`assets/${asset.symbol}?wallet_id=${wallet_id}`}
+                    className="w-fit"
+                  >
+                    Buy/Sell
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

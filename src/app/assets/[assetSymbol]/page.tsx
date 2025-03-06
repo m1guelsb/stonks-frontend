@@ -2,7 +2,7 @@ import { Card } from 'flowbite-react';
 import { AssetItem } from '@/components/AssetItem';
 import { AssetTabs } from '@/components/AssetTabs';
 import { Asset } from '@/models';
-import { AssetChatComponent } from './AssertChartComponent';
+import { AssetChartComponent } from './AssertChartComponent';
 
 export const getAsset = async (symbol: string): Promise<Asset> =>
   fetch(`${process.env.API_URL}/assets/${symbol}`).then((res) => res.json());
@@ -30,7 +30,7 @@ export default async function AssetDetails({
           </Card>
         </div>
         <div className="col-span-3 flex flex-grow">
-          <AssetChatComponent asset={asset} />
+          <AssetChartComponent asset={asset} />
         </div>
       </div>
     </div>

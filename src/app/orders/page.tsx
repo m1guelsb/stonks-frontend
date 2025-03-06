@@ -2,7 +2,6 @@ import { AssetItem } from '@/components/AssetItem';
 import { Order, OrderStatus, OrderType } from '@/models';
 import {
   Badge,
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -71,9 +70,6 @@ export default async function Orders({
                   >
                     {orderStatus[order.status].text}
                   </Badge>
-                </TableCell>
-                <TableCell>
-                  <Button color="light">Buy</Button>
                 </TableCell>
               </TableRow>
             ))}
