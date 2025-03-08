@@ -1,15 +1,6 @@
-import { AssetItem } from '@/components/AssetItem';
 import { Wallet } from '@/models';
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableRow,
-} from 'flowbite-react';
-import Link from 'next/link';
+import { Table, TableBody, TableHead, TableHeadCell } from 'flowbite-react';
+import { TableWalletAssetRow } from './TableWalletAssetRow';
 
 export async function getMyWallet(walletId: string): Promise<Wallet> {
   const res = await fetch(`${process.env.API_URL}/wallets/${walletId}`);
@@ -38,24 +29,12 @@ export default async function MyWallet({
             <TableHeadCell>Buy/Sell</TableHeadCell>
           </TableHead>
           <TableBody>
-            {wallet.assets.map((asset) => (
-              <TableRow key={asset._id}>
-                <TableCell>
-                  <AssetItem asset={asset} />
-                </TableCell>
-                <TableCell>${asset.price}</TableCell>
-                <TableCell>{asset.shares}</TableCell>
-                <TableCell>
-                  <Button
-                    color="light"
-                    as={Link}
-                    href={`/assets/${asset.symbol}?wallet_id=${wallet_id}`}
-                    className="w-fit"
-                  >
-                    Buy/Sell
-                  </Button>
-                </TableCell>
-              </TableRow>
+            {wallet.assets.map((walletAsset) => (
+              <TableWalletAssetRow
+                key={walletAsset._id}
+                walletAsset={walletAsset}
+                walletId={wallet_id}
+              />
             ))}
           </TableBody>
         </Table>
