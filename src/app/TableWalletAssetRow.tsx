@@ -29,7 +29,7 @@ export const TableWalletAssetRow = ({
         <AssetItem asset={asset} />
       </TableCell>
       <TableCell>${asset.price}</TableCell>
-      <TableCell>{asset?.shares && '--'}</TableCell>
+      <TableCell>{asset.shares}</TableCell>
       <TableCell>
         <Button
           color="light"
