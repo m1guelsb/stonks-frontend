@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h1>Stonks Portfolio</h1>
+</div>
 
-## Getting Started
+<p align="center">
+  <img alt="Typescript" src="https://img.shields.io/badge/Typescript-black?style=for-the-badge&logo=typescript&logoColor=blue"/>
 
-First, run the development server:
+  <img alt="Next" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  <img alt="React" src="https://img.shields.io/badge/react-black.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <img alt="Tailwind" src="https://img.shields.io/badge/tailwindcss-black.svg?style=for-the-badge&logo=tailwind-css&logoColor=%2361DAFB"/>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+  <img alt="Socket-io" src="https://img.shields.io/badge/socket.io-black.svg?style=for-the-badge"/>
+</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# About 🔎
 
-## Learn More
+Investment portfolio where is possible to manage, purchase and sell assets.
 
-To learn more about Next.js, take a look at the following resources:
+# How to run 🏃
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This is the front-end of a whole project, you will need the other parts to run it properly:
+- [Nestjs Backend](https://github.com/m1guelsb/stonks-backend)
+- [Go Microservice](https://github.com/m1guelsb/stonks-b3)
 
-## Deploy on Vercel
+## Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/m1guelsb/stonks-frontend
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Rename the `.env.example` to `.env`
+  
+4. Run the development server along with Backend:
+   ```sh
+     npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Miguel Barbosa - [@m1guelsb](https://www.linkedin.com/in/m1guelsb)
